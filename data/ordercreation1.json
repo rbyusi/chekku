@@ -1,0 +1,413 @@
+﻿{
+  "id": 2073969360955,
+  "email": "rbyusi@gmail.com",
+  "closed_at": null,
+  "created_at": "2020-03-18T08:12:25-04:00",
+  "updated_at": "2020-03-18T08:12:26-04:00",
+  "number": 1,
+  "note": null,
+  "token": "4850dac053d2225c52e7ae86436a5d37",
+  "gateway": "bogus",
+  "test": true,
+  "total_price": "268410.00",
+  "subtotal_price": "244000.00",
+  "total_weight": 0,
+  "total_tax": "24400.00",
+  "taxes_included": false,
+  "currency": "AUD",
+  "financial_status": "authorized",
+  "confirmed": true,
+  "total_discounts": "0.00",
+  "total_line_items_price": "244000.00",
+  "cart_token": "4977a8f5371c916e645c641b8bb6c67e",
+  "buyer_accepts_marketing": false,
+  "name": "#1001",
+  "referring_site": "",
+  "landing_site": "/admin",
+  "cancelled_at": null,
+  "cancel_reason": null,
+  "total_price_usd": "160802.02",
+  "checkout_token": "2f5e366c155e45520b2953211f3d31f9",
+  "reference": null,
+  "user_id": null,
+  "location_id": null,
+  "source_identifier": null,
+  "source_url": null,
+  "processed_at": "2020-03-18T08:12:25-04:00",
+  "device_id": null,
+  "phone": null,
+  "customer_locale": "en",
+  "app_id": 580111,
+  "browser_ip": "14.202.106.111",
+  "landing_site_ref": null,
+  "order_number": 1001,
+  "discount_applications": [],
+  "discount_codes": [],
+  "note_attributes": [],
+  "payment_gateway_names": [
+    "bogus"
+  ],
+  "processing_method": "direct",
+  "checkout_id": 12264685994043,
+  "source_name": "web",
+  "fulfillment_status": null,
+  "tax_lines": [
+    {
+      "price": "24400.00",
+      "rate": 0.1,
+      "title": "GST",
+      "price_set": {
+        "shop_money": {
+          "amount": "24400.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "24400.00",
+          "currency_code": "AUD"
+        }
+      }
+    }
+  ],
+  "tags": "",
+  "contact_email": "rbyusi@gmail.com",
+  "order_status_url": "https://tisentat.myshopify.com/34592981051/orders/4850dac053d2225c52e7ae86436a5d37/authenticate?key=90a84b791914b0cab9c389430181f7b7",
+  "presentment_currency": "AUD",
+  "total_line_items_price_set": {
+    "shop_money": {
+      "amount": "244000.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "244000.00",
+      "currency_code": "AUD"
+    }
+  },
+  "total_discounts_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "AUD"
+    }
+  },
+  "total_shipping_price_set": {
+    "shop_money": {
+      "amount": "10.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "10.00",
+      "currency_code": "AUD"
+    }
+  },
+  "subtotal_price_set": {
+    "shop_money": {
+      "amount": "244000.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "244000.00",
+      "currency_code": "AUD"
+    }
+  },
+  "total_price_set": {
+    "shop_money": {
+      "amount": "268410.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "268410.00",
+      "currency_code": "AUD"
+    }
+  },
+  "total_tax_set": {
+    "shop_money": {
+      "amount": "24400.00",
+      "currency_code": "AUD"
+    },
+    "presentment_money": {
+      "amount": "24400.00",
+      "currency_code": "AUD"
+    }
+  },
+  "line_items": [
+    {
+      "id": 4587286954043,
+      "variant_id": 32784250699835,
+      "title": "Asteroid Oil Burner",
+      "quantity": 2,
+      "sku": null,
+      "variant_title": "",
+      "vendor": "Ryan Hanrahan",
+      "fulfillment_service": "manual",
+      "product_id": 4659594068027,
+      "requires_shipping": true,
+      "taxable": true,
+      "gift_card": false,
+      "name": "Asteroid Oil Burner",
+      "variant_inventory_management": "shopify",
+      "properties": [],
+      "product_exists": true,
+      "fulfillable_quantity": 2,
+      "grams": 0,
+      "price": "12000.00",
+      "total_discount": "0.00",
+      "fulfillment_status": null,
+      "price_set": {
+        "shop_money": {
+          "amount": "12000.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "12000.00",
+          "currency_code": "AUD"
+        }
+      },
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "AUD"
+        }
+      },
+      "discount_allocations": [],
+      "admin_graphql_api_id": "gid://shopify/LineItem/4587286954043",
+      "tax_lines": [
+        {
+          "title": "GST",
+          "price": "2400.00",
+          "rate": 0.1,
+          "price_set": {
+            "shop_money": {
+              "amount": "2400.00",
+              "currency_code": "AUD"
+            },
+            "presentment_money": {
+              "amount": "2400.00",
+              "currency_code": "AUD"
+            }
+          }
+        }
+      ],
+      "origin_location": {
+        "id": 1800556806203,
+        "country_code": "AU",
+        "province_code": "NSW",
+        "name": "TisenTat",
+        "address1": "287 Elizabeth Street",
+        "address2": "",
+        "city": "sydney",
+        "zip": "2000"
+      }
+    },
+    {
+      "id": 4587286986811,
+      "variant_id": 32784272162875,
+      "title": "Across Coffee Table",
+      "quantity": 1,
+      "sku": null,
+      "variant_title": "",
+      "vendor": "Louise Gorham, Elliot Gorham",
+      "fulfillment_service": "manual",
+      "product_id": 4659601834043,
+      "requires_shipping": true,
+      "taxable": true,
+      "gift_card": false,
+      "name": "Across Coffee Table",
+      "variant_inventory_management": "shopify",
+      "properties": [],
+      "product_exists": true,
+      "fulfillable_quantity": 1,
+      "grams": 0,
+      "price": "220000.00",
+      "total_discount": "0.00",
+      "fulfillment_status": null,
+      "price_set": {
+        "shop_money": {
+          "amount": "220000.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "220000.00",
+          "currency_code": "AUD"
+        }
+      },
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "AUD"
+        }
+      },
+      "discount_allocations": [],
+      "admin_graphql_api_id": "gid://shopify/LineItem/4587286986811",
+      "tax_lines": [
+        {
+          "title": "GST",
+          "price": "22000.00",
+          "rate": 0.1,
+          "price_set": {
+            "shop_money": {
+              "amount": "22000.00",
+              "currency_code": "AUD"
+            },
+            "presentment_money": {
+              "amount": "22000.00",
+              "currency_code": "AUD"
+            }
+          }
+        }
+      ],
+      "origin_location": {
+        "id": 1800556806203,
+        "country_code": "AU",
+        "province_code": "NSW",
+        "name": "TisenTat",
+        "address1": "287 Elizabeth Street",
+        "address2": "",
+        "city": "sydney",
+        "zip": "2000"
+      }
+    }
+  ],
+  "fulfillments": [],
+  "refunds": [],
+  "total_tip_received": "0.0",
+  "admin_graphql_api_id": "gid://shopify/Order/2073969360955",
+  "shipping_lines": [
+    {
+      "id": 1695558729787,
+      "title": "Standard",
+      "price": "10.00",
+      "code": "Standard",
+      "source": "shopify",
+      "phone": null,
+      "requested_fulfillment_service_id": null,
+      "delivery_category": null,
+      "carrier_identifier": null,
+      "discounted_price": "10.00",
+      "price_set": {
+        "shop_money": {
+          "amount": "10.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "10.00",
+          "currency_code": "AUD"
+        }
+      },
+      "discounted_price_set": {
+        "shop_money": {
+          "amount": "10.00",
+          "currency_code": "AUD"
+        },
+        "presentment_money": {
+          "amount": "10.00",
+          "currency_code": "AUD"
+        }
+      },
+      "discount_allocations": [],
+      "tax_lines": []
+    }
+  ],
+  "billing_address": {
+    "first_name": "",
+    "address1": "287 Victoria road",
+    "phone": null,
+    "city": "Sydney",
+    "zip": "2000",
+    "province": "New South Wales",
+    "country": "Australia",
+    "last_name": "Yusi",
+    "address2": "2705",
+    "company": null,
+    "latitude": null,
+    "longitude": null,
+    "name": "Yusi",
+    "country_code": "AU",
+    "province_code": "NSW"
+  },
+  "shipping_address": {
+    "first_name": "",
+    "address1": "287 Victoria road",
+    "phone": null,
+    "city": "Sydney",
+    "zip": "2000",
+    "province": "New South Wales",
+    "country": "Australia",
+    "last_name": "Yusi",
+    "address2": "2705",
+    "company": null,
+    "latitude": null,
+    "longitude": null,
+    "name": "Yusi",
+    "country_code": "AU",
+    "province_code": "NSW"
+  },
+  "client_details": {
+    "browser_ip": "14.202.106.111",
+    "accept_language": "en-GB,en-US;q=0.9,en;q=0.8",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36",
+    "session_hash": null,
+    "browser_width": 2560,
+    "browser_height": 1177
+  },
+  "payment_details": {
+    "credit_card_bin": "1",
+    "avs_result_code": null,
+    "cvv_result_code": null,
+    "credit_card_number": "•••• •••• •••• 1",
+    "credit_card_company": "Bogus"
+  },
+  "customer": {
+    "id": 3007068864571,
+    "email": "rbyusi@gmail.com",
+    "accepts_marketing": false,
+    "created_at": "2020-03-18T07:53:43-04:00",
+    "updated_at": "2020-03-18T08:12:26-04:00",
+    "first_name": "",
+    "last_name": "Yusi",
+    "orders_count": 0,
+    "state": "disabled",
+    "total_spent": "0.00",
+    "last_order_id": null,
+    "note": null,
+    "verified_email": true,
+    "multipass_identifier": null,
+    "tax_exempt": false,
+    "phone": null,
+    "tags": "",
+    "last_order_name": null,
+    "currency": "AUD",
+    "accepts_marketing_updated_at": "2020-03-18T07:53:43-04:00",
+    "marketing_opt_in_level": null,
+    "admin_graphql_api_id": "gid://shopify/Customer/3007068864571",
+    "default_address": {
+      "id": 3159807721531,
+      "customer_id": 3007068864571,
+      "first_name": "",
+      "last_name": "Yusi",
+      "company": null,
+      "address1": "287 Victoria road",
+      "address2": "2705",
+      "city": "Sydney",
+      "province": "New South Wales",
+      "country": "Australia",
+      "zip": "2000",
+      "phone": null,
+      "name": "Yusi",
+      "province_code": "NSW",
+      "country_code": "AU",
+      "country_name": "Australia",
+      "default": true
+    }
+  }
+}
