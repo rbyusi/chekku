@@ -17,7 +17,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Homepage Route
+//Homepage Router
 app.get('/', (req, res) =>
   res.render('index', {
     title: 'Member App',
@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Members API Routes
 app.use('/api/members', require('./routes/api/members'));
+app.use('/api/orders', require('./routes/api/orders'));
 
 const PORT = process.env.PORT || 5000;
 
