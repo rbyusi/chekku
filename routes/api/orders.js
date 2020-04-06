@@ -19,7 +19,6 @@ router.post('/', (req, res) =>{
         "completed": false,
         "due_at": "2020-09-15T02:06:58.147Z",
         "external": {
-          "gid": "my_gid",
           "data": "A blob of information"
         },
         "html_notes": "<body>Mittens <em>really</em> likes the stuff from Humboldt.</body>",
@@ -77,8 +76,14 @@ router.post('/', (req, res) =>{
          fetch(`https://app.asana.com/api/1.0/tasks/${task_gid}/subtasks`,postSubTask)
          .then(response=>response.json)
          .then((data)=>{console.log(data.data)})
+         .catch((error) => {
+          console.error('There has been a problem with your fetch operation:', error);
+        });
        })
     })
+    .catch((error) => {
+      console.error('There has been a problem with your fetch operation:', error);
+    });
 
     
    //client.users.me()
