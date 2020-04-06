@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const logger = require('./middleware/logger');
 const members = require('./Members');
 
+
 const app = express();
 
 // Init middleware
@@ -15,7 +16,7 @@ app.set('view engine', 'handlebars');
 
 // Body Parser Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 //Homepage Router
 app.get('/', (req, res) =>
