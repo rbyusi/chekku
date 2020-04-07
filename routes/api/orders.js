@@ -98,13 +98,13 @@ router.post('/', async (req, res) =>{
   // We don't need to use `then` anymore with await
   const taskResponse = await createNewTask(newOrder.name,uri);
  // console.log(taskResponse.json)
-  const taskGID = taskResponse.data.gid;
+  const taskGID = await taskResponse.data.gid;
 
   // Loop through lineItems to create an array of fetch Promises
-  const subtaskCreationPromises = newOrder.line_items.map(item => {
-    return createNewSubtask(uri,taskGID,item.fulfillable_quantity,item.name)
+  const subtaskCreationPromises = newOrder.line_items.map(async item => {
+    const subTask =  createNewSubtask(uri,taskGID,item.fulfillable_quantity,item.name)
+    return subTask
   })
-console.log(subtaskCreationPromises)
   // wait for all fetch Promises to resolve
   await Promise.all(subtaskCreationPromises)
 
