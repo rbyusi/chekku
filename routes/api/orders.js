@@ -1,116 +1,114 @@
-const express = require('express')
-const router = express.Router()
-const tempJSON = require('../../data/temp.txt')
-const fetch  = require('node-fetch')
-const asana = require('asana')
+const express = require("express");
+const router = express.Router();
+const fetch = require("node-fetch");
 
-const createNewTask = async (orderNumber,url)=>{
-  let newTask = {
-    "data": {
-      'name': 'Order -' +   orderNumber  + '- Ryan Yusi',
-      "approval_status": "pending",
-      "assignee_status": "upcoming",
-      "completed": false,
-      "due_at": "2020-09-15T02:06:58.147Z",
-      "external": {
-        "data": "A blob of information"
+const createNewTask = async (orderNumber, url) => {
+  const newTask = {
+    data: {
+      name: "Order -" + orderNumber + "- Ryan Yusi",
+      approval_status: "pending",
+      assignee_status: "upcoming",
+      completed: false,
+      due_at: "2020-09-15T02:06:58.147Z",
+      external: {
+        data: "A blob of information",
       },
-      "html_notes": "<body>Mittens <em>really</em> likes the stuff from Humboldt.</body>",
-      "liked": true,
-      "notes": "Mittens really likes the stuff from Humboldt.",
-      "resource_subtype": "default_task",
-      "assignee": "1166576348228021",
-      "projects": "1166719723537354",
-  
-      "workspace": "1165910526209201"
-    }
-  }
+      html_notes:
+        "<body>Mittens <em>really</em> likes the stuff from Humboldt.</body>",
+      liked: true,
+      notes: "Mittens really likes the stuff from Humboldt.",
+      resource_subtype: "default_task",
+      assignee: "1166576348228021",
+      projects: "1166719723537354",
 
-  let postTask = {  
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer 1/1166576348228021:547169b6b8c06f866e90aeeb4226b3c0',
-      'Host': 'app.asana.com'
+      workspace: "1165910526209201",
     },
-    body: JSON.stringify(newTask)}
+  };
 
-    //return fetch(url,postTask);
-    try {
-    let response = await fetch(url,postTask)
-    let data = await response.json()
-    return data
-  } catch (error) {
-    console.log(error)
-  }
-  
-}
+  const postTask = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization:
+        "Bearer 1/1166576348228021:547169b6b8c06f866e90aeeb4226b3c0",
+      Host: "app.asana.com",
+    },
+    body: JSON.stringify(newTask),
+  };
 
-const createNewSubtask = async (url,taskGID,itemQuantity, itemName)=>{
+  return fetch(url, postTask);
+};
+
+const createNewSubtask = (url, taskGID, itemQuantity, itemName) => {
   let newSubTask = {
-        "data": {
-          //"name": `${item.fulfillable_quantity} x  ${item.name}`,
-          "name": `${itemQuantity} x ${itemName}`,
-          "approval_status": "pending",
-          "assignee_status": "upcoming",
-          "completed": false,
-        
-          "due_at": "2020-09-15T02:06:58.147Z",
-          "external": {
-            "gid": `${taskGID}`,
-            "data": "A blob of information"
-          },
-          "assignee": "1166576348228021",
-          "workspace": "1165910526209201"
-        }
-      }
-      let postSubTask = {  
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer 1/1166576348228021:547169b6b8c06f866e90aeeb4226b3c0',
-          'Host': 'app.asana.com'
-        },
-        body: JSON.stringify(newSubTask)}
+    data: {
+      //"name": `${item.fulfillable_quantity} x  ${item.name}`,
+      name: `${itemQuantity} x ${itemName}`,
+      approval_status: "pending",
+      assignee_status: "upcoming",
+      completed: false,
 
-        try {
-          let response = await fetch(url + `/${taskGID}/subtasks`,postSubTask)
-          let data = await response.json()
-          return data
-        } catch (error) {
-          console.log(error)
-        }
-}
+      due_at: "2020-09-15T02:06:58.147Z",
+      // Need to figure out what this does, maybe we don't need it
+      // external: {
+      //   gid: `${taskGID}`,
+      //   data: "A blob of information",
+      // },
+      assignee: "1166576348228021",
+      workspace: "1165910526209201",
+    },
+  };
+  let postSubTask = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization:
+        "Bearer 1/1166576348228021:547169b6b8c06f866e90aeeb4226b3c0",
+      Host: "app.asana.com",
+    },
+    body: JSON.stringify(newSubTask),
+  };
+
+  // Just return the promise, don't bother waiting here
+  return fetch(url + `/${taskGID}/subtasks`, postSubTask);
+};
 
 //Receive order webhook POST request for new order
-router.post('/', async (req, res) =>{
-  let subTasks
-  const uri = "https://app.asana.com/api/1.0/tasks"
-  const newOrder = req.body
+router.post("/", async (req, res) => {
+  const uri = "https://app.asana.com/api/1.0/tasks";
+  const newOrder = req.body;
+  let taskResponse;
 
-  //create new task and get the taskGID
-  // await createNewTask(newOrder.name,uri) 
-  // .then((data)=>{ 
-  //   taskGID = data.data.gid})
-  
-  // We don't need to use `then` anymore with await
-  const taskResponse = await createNewTask(newOrder.name,uri);
- // console.log(taskResponse.json)
-  const taskGID = await taskResponse.data.gid;
+  try {
+    taskResponse = await createNewTask(newOrder.name, uri);
+  } catch (e) {
+    console.error(e);
+    res.status(500).send("some error");
+  }
+  const taskData = await taskResponse.json();
+  const taskGID = taskData.data.gid;
 
   // Loop through lineItems to create an array of fetch Promises
-  const subtaskCreationPromises = newOrder.line_items.map(async item => {
-    const subTask =  createNewSubtask(uri,taskGID,item.fulfillable_quantity,item.name)
-    return subTask
-  })
-  // wait for all fetch Promises to resolve
-  await Promise.all(subtaskCreationPromises)
+  const subtaskCreationPromises = newOrder.line_items.map((item) => {
+    const subTask = createNewSubtask(
+      uri,
+      taskGID,
+      item.fulfillable_quantity,
+      item.name
+    );
+    return subTask;
+  });
 
-    
-    res.status(200).send("all good")
-
+  try {
+    // wait for all fetch Promises to create subtasks resolve
+    await Promise.all(subtaskCreationPromises);
+    res.status(200).send("all good");
+  } catch (e) {
+    console.error(e);
+    res.status(500).send("some error");
+  }
 });
 
 //fetch webhook from shopify (post)
