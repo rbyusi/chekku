@@ -84,7 +84,6 @@ router.post("/", async (req, res) => {
 
   try {
     taskResponse = await createNewTask(newOrder.name, uri);
-    res.status(200)
   } catch (e) {
     console.error(e);
     res.status(500).send("some error");
