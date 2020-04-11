@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fetch = require("node-fetch");
+require('dotenv').config()
 
 const createNewTask = async (orderNumber, url) => {
   const newTask = {
@@ -18,10 +19,10 @@ const createNewTask = async (orderNumber, url) => {
       liked: true,
       notes: "Mittens really likes the stuff from Humboldt.",
       resource_subtype: "default_task",
-      assignee: "1166576348228021",
-      projects: "1166719723537354",
+      assignee: process.env.ENV_ASIGNEE,
+      projects: process.env.ENV_PROJECT,
 
-      workspace: "1165910526209201",
+      workspace: process.env.ENV_WORKSPACE,
     },
   };
 
@@ -31,7 +32,7 @@ const createNewTask = async (orderNumber, url) => {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization:
-        "Bearer 1/1166576348228021:547169b6b8c06f866e90aeeb4226b3c0",
+        process.env.ENV_TOKEN,
       Host: "app.asana.com",
     },
     body: JSON.stringify(newTask),
@@ -55,8 +56,8 @@ const createNewSubtask = (url, taskGID, itemQuantity, itemName) => {
       //   gid: `${taskGID}`,
       //   data: "A blob of information",
       // },
-      assignee: "1166576348228021",
-      workspace: "1165910526209201",
+      assignee: process.env.ENV_ASIGNEE,
+      workspace: process.env.ENV_WORKSPACE,
     },
   };
   let postSubTask = {
@@ -65,7 +66,7 @@ const createNewSubtask = (url, taskGID, itemQuantity, itemName) => {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization:
-        "Bearer 1/1166576348228021:547169b6b8c06f866e90aeeb4226b3c0",
+        process.env.ENV_TOKEN,
       Host: "app.asana.com",
     },
     body: JSON.stringify(newSubTask),
