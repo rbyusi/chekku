@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fetch = require("node-fetch");
 require('dotenv').config()
+const logger = require('../../middleware/logger_w')
+
 
 const createNewTask = async (orderNumber, url) => {
   const newTask = {
@@ -107,7 +109,8 @@ router.post("/", async (req, res) => {
     await Promise.all(subtaskCreationPromises);
     res.status(200).send("all good");
   } catch (e) {
-    console.error(e);
+    //console.error(e);
+    console.log(error(e))
     res.status(500).send("some error");
   }
 });

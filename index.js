@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
-const logger = require('./middleware/logger');
+const logger = require('./middleware/logger_w');
 const members = require('./Members');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+
 
 
 const app = express();
@@ -27,6 +28,17 @@ app.get('/', (req, res) =>
   })
 );
 
+app.use((req, res, next)=>{
+  logger.info(req.body);
+  
+  let oldSend = res.send;
+  res.send = function(data){
+    logger.info(data);
+    oldSend.apply(res,arguments);
+  }
+  next();
+});
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -36,4 +48,4 @@ app.use('/api/orders', require('./routes/api/orders'));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => logger.log('info',`Server started on port ${PORT}`));
