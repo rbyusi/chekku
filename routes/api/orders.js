@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fetch = require("node-fetch");
 require('dotenv').config()
-const logger = require('../../middleware/logger_w')
+
 
 
 const createNewTask = async (orderNumber, url) => {
@@ -33,8 +33,7 @@ const createNewTask = async (orderNumber, url) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization:
-        process.env.ENV_TOKEN,
+      Authorization: process.env.ENV_TOKEN,
       Host: "app.asana.com",
     },
     body: JSON.stringify(newTask),
@@ -67,8 +66,7 @@ const createNewSubtask = (url, taskGID, itemQuantity, itemName) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization:
-        process.env.ENV_TOKEN,
+      Authorization: process.env.ENV_TOKEN,
       Host: "app.asana.com",
     },
     body: JSON.stringify(newSubTask),
@@ -80,6 +78,7 @@ const createNewSubtask = (url, taskGID, itemQuantity, itemName) => {
 
 //Receive order webhook POST request for new order
 router.post("/", async (req, res) => {
+  res.status(200).send("all good");
   const uri = "https://app.asana.com/api/1.0/tasks";
   const newOrder = req.body;
   let taskResponse;
@@ -88,7 +87,6 @@ router.post("/", async (req, res) => {
     taskResponse = await createNewTask(newOrder.name, uri);
   } catch (e) {
     console.error(e);
-    res.status(500).send("some error");
   }
   const taskData = await taskResponse.json();
   const taskGID = taskData.data.gid;
@@ -107,11 +105,8 @@ router.post("/", async (req, res) => {
   try {
     // wait for all fetch Promises to create subtasks resolve
     await Promise.all(subtaskCreationPromises);
-    res.status(200).send("all good");
   } catch (e) {
-    //console.error(e);
-    console.log(error(e))
-    res.status(500).send("some error");
+    console.error(e);
   }
 });
 
